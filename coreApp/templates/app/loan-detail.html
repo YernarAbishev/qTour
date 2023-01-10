@@ -1,0 +1,48 @@
+{% extends '../base.html' %}
+
+
+{% block title %}Аренда{% endblock %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+<nav aria-label="breadcrumb mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a class="orange-link" href="{% url 'loanPage' %}">Назад</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ loan.placeName }}</li>
+  </ol>
+</nav>
+<div class="main mb-4">
+    <h1 class="mb-2">{{ loan.placeName }}</h1>
+</div>
+<div class="posts mb-4">
+    <div class="post-card" style="height: 100%">
+        <h3>{{ loan.placeName }}</h3>
+        <p style="text-align: justify; font-size: 13px;">{{ loan.smallDescription }}</p>
+        {% if loan.whatsapp %}
+        <a href="https://wa.me/{{ loan.whatsapp }}" class="d-block mt-3 mb-3">Написать на Whatsapp</a>
+        {% else %}
+        <span></span>
+        {% endif %}
+        {% if loan.instagram %}
+        <a href="https://instagram.com/{{ loan.instagram }}" class="d-block mt-3 mb-3">Instagram</a>
+        {% else %}
+        <span></span>
+        {% endif %}
+        {% if loan.map %}
+        <a href="{{ loan.map }}" class="d-block mt-3 mb-3">Карта</a>
+        {% else %}
+        <span></span>
+        {% endif %}
+    </div>
+</div>
+{% else %}
+<div class="main mt-5 mb-5">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Чтобы взаимодействовать с приложением, пройдите <a href="{% url 'signUp' %}">регистрацию</a> или если у Вас есть аккаунт <a
+            href="{% url 'logIn' %}">войдите</a> в систему
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

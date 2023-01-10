@@ -1,0 +1,38 @@
+{% extends '../base.html' %}
+
+
+{% block title %}Аренда{% endblock %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+<nav aria-label="breadcrumb mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a class="orange-link" href="{% url 'homePage' %}">Назад</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Аренда</li>
+  </ol>
+</nav>
+<div class="main mb-4">
+    <h1 class="mb-2">Аренда ⛷️</h1>
+    <p class="mb-4 subtitle">Коньки. Сноуборд. Велосипед. Самокат. Автомобиль</p>
+    <div class="row">
+        {% for loan in loans %}
+        <div class="col-6 mb-3">
+            <div class="post-card">
+                <h3>{{ loan.placeName }}</h3>
+                <a href="{% url 'loanDetails' pk=loan.pk %}">Смотреть</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<div class="main mt-5 mb-5">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Чтобы взаимодействовать с приложением, пройдите <a href="{% url 'signUp' %}">регистрацию</a> или если у Вас есть аккаунт <a
+            href="{% url 'logIn' %}">войдите</a> в систему
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

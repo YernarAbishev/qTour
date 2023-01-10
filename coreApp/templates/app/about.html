@@ -1,0 +1,32 @@
+{% extends '../base.html' %}
+
+
+{% block title %}О приложении{% endblock %}
+
+
+{% block content %}
+<div class="about mb-4">
+    <h1 class="mb-2">О приложении ℹ️</h1>
+    <p class="mb-4 subtitle">Кто мы?</p>
+    {% for content in page %}
+    <p>{{ content.description }}</p>
+    {% endfor %}
+</div>
+<div class="socials mb-4">
+    <h2 class="mb-4">Мы в соц сетях</h2>
+    <div class="row text-center">
+        <div class="col">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="col">
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="col">
+            <a href="#"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+        <div class="col">
+            <a href="#"><i class="fa-brands fa-yandex"></i></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends '../base.html' %}
+
+
+{% block title %}Статьи{% endblock %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+<nav aria-label="breadcrumb mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a class="orange-link" href="{% url 'allArticles' %}">Назад</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
+  </ol>
+</nav>
+<div class="main mb-4">
+    <h1 class="mb-2">{{ article.title }}</h1>
+</div>
+<div class="posts mb-4">
+    <div class="post-card" style="height: 100%">
+        <h3>{{ article.title }}</h3>
+        {% if article.articleCover %}
+        <div class="mt-3 mb-3">
+            <img src="{{ article.articleCover }}" width="100%" alt="">
+        </div>
+        {% else %}
+        <span></span>
+        {% endif %}
+        <p><strong>{{ article.postDate|date:'d.m.Y' }}</strong></p>
+        <p style="text-align: justify; font-size: 13px;">{{ article.content }}</p>
+        <a href="#" class="d-block mt-3 mb-3">Поделиться</a>
+    </div>
+</div>
+{% else %}
+<div class="main mt-5 mb-5">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Чтобы взаимодействовать с приложением, пройдите <a href="{% url 'signUp' %}">регистрацию</a> или если у Вас есть аккаунт <a
+            href="{% url 'logIn' %}">войдите</a> в систему
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

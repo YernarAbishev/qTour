@@ -1,0 +1,28 @@
+{% extends '../base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Профиль{% endblock %}
+
+
+{% block content %}
+<nav aria-label="breadcrumb mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a class="orange-link" href="{% url 'homePage' %}">Назад</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Профиль</li>
+  </ol>
+</nav>
+<div class="main mb-4">
+    <h1 class="mb-2">Профиль 👤</h1>
+    <div class="card">
+        <div class="card-body">
+            <h3>{{ user.last_name }} {{ user.first_name }}</h3>
+            <h4>Логин: {{ user.username }}</h4>
+            <h4>Почта: {{ user.email }}</h4>
+            {% if user.is_superuser %}
+            <a href="{% url 'admin:index' %}" class="orange-link">Панель администратора</a>
+            {% else %}
+            <a href="{% url 'change_password' %}" class="orange-link">Сменить пароль</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

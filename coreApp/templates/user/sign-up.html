@@ -1,0 +1,27 @@
+{% extends '../base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Регистрация{% endblock %}
+
+
+{% block content %}
+<nav aria-label="breadcrumb mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a class="orange-link" href="{% url 'homePage' %}">Назад</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Регистрация</li>
+  </ol>
+</nav>
+<div class="main mb-4">
+    <h1 class="mb-2">Регистрация 👤</h1>
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="mt-3 btn btn-dark w-100">Войти</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

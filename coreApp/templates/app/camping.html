@@ -1,0 +1,40 @@
+{% extends '../base.html' %}
+
+
+{% block title %}Кемпинг{% endblock %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a class="orange-link" href="{% url 'homePage' %}">Назад</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Кемпинг</li>
+  </ol>
+</nav>
+<div class="main mb-4">
+    <h1 class="mb-2">Кемпинг ⛰️️</h1>
+</div>
+<div class="posts mb-4">
+    <div class="row mb-3">
+        {% for camping in campings %}
+        <div class="col-12 mb-3">
+            <div class="post-card pt-2 pb-2" style="height: 100%">
+                <h3>{{ camping.campingName }}</h3>
+                <p><strong>{{ camping.postDate|date:'d.m.Y' }}</strong></p>
+                <a href="{% url 'campingDetail' pk=camping.pk %}">Смотреть</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<div class="main mt-5 mb-5">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Чтобы взаимодействовать с приложением, пройдите <a href="{% url 'signUp' %}">регистрацию</a> или если у Вас есть аккаунт <a
+            href="{% url 'logIn' %}">войдите</a> в систему
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

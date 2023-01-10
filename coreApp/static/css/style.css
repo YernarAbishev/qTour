@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+::-webkit-scrollbar { display: none; }
+
+
+ul, li {
+    list-style: none;
+}
+/* h1,h2,h3,h4,h5,h6 {
+    color: #3d5a80;
+} */
+.btn-close {
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%ee6c4d'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+}
+.offcanvas {
+    width: 100%;
+}
+.bg-orange {
+    background-color: #ee6c4d;
+}
+.burger-menu-list a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 10px;
+    transition: 0.3s ease-in-out;
+}
+.burger-menu-list a:hover {
+    color: #cfcfcf;
+}
+.owl-nav, .owl-dots {
+    display: none;
+}
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.menu {
+    width: 48px;
+}
+.fixed-top-menu {
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #ee6c4d;
+}
+.fixed-bottom-menu {
+    border-top: 1px solid #cfcfcf;
+    padding: 8px 0;
+    width: 100%;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+
+}
+.menu-item {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+.menu-logo {
+    color: #ee6c4d;
+    font-size: 32px;
+}
+.is-active {
+    color: #3d5a80;
+}
+.menu-text {
+    color: #293241;
+    font-size: 13px;
+}
+.content {
+    padding: 100px 0;
+}
+.main h1 {
+    color: #3d5a80;
+    font-weight: 500;
+}
+.main .subtitle, .about .subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ee6c4d;
+}
+.about p {
+    text-align: justify;
+}
+.socials a {
+    font-size: 48px;
+    color: #3d5a80;
+    transition: 0.3s ease-in-out;
+}
+.socials a:hover {
+    color: #ee6c4d;
+}
+.news-card {
+    height: 100%;
+    border-radius: 10px;
+    padding: 30px 15px;
+    color: #ffffff;
+}
+.news-card p {
+    font-size: 12px;
+    text-align: justify;
+}
+.service-item {
+    border: 1px solid #3d5a80;
+    color: #3d5a80;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+.service-logo {
+    color: #ee6c4d;
+    font-size: 32px;
+}
+.service-text {
+    color: #3d5a80;
+    font-size: 13px;
+}
+.post-card {
+    border: 1px solid #3d5a80;
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+}
+.post-card h3 {
+    color: #ee6c4d;
+    font-size: 14px;
+    font-weight: 600;
+}
+.post-card strong {
+    color: #293241;
+}
+.post-card a {
+    color: #3d5a80;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    transition: 0.3s ease-in-out;
+}
+.post-card a:hover {
+    color: #293241;
+}
+.orange-link {
+    color: #ee6c4d;
+    text-decoration: none;
+}
+.orange-link:hover {
+    color: #293241;
+}
+.preloader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 10000000;
+    background: #fff;
+    text-align: center;
+}
+.preloader-content {
+    position: relative;
+    left: 0%;
+    top: 40%;
+}
